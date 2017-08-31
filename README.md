@@ -1,10 +1,11 @@
 # Workbox
 
-In this lab you learn how to use IndexedDB and the Workbox suite.
+In this lab you learn how to use IndexedDB and the Workbox suite to make a
+data-driven PWA work offline.
 
 ## Getting started
 
-Clone the repository and navigate to **data-driven-pwas/project**.
+Clone the repository and navigate to **workbox-indexeddb/project**.
 
 [Download and install Node.js](https://nodejs.org/en/download/).
 
