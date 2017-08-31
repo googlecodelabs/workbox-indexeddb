@@ -1,13 +1,18 @@
-# Workbox
+# Data driven PWA
 
-In this lab you learn how to use IndexedDB and the Workbox suite to make a
-data-driven PWA work offline.
+In this codelab, you’ll use [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) and [Workbox](https://workboxjs.org/) to create a fully offline-capable, data-driven app. You also use [Background Sync](https://developers.google.com/web/updates/2015/12/background-sync) to sync your app with the server even when your web app is closed.
 
 ## Getting started
 
 Clone the repository and navigate to **workbox-indexeddb/project**.
 
 [Download and install Node.js](https://nodejs.org/en/download/).
+
+## More resources
+
+* IndexedDB [lecture](https://developers.google.com/web/ilt/pwa/working-with-indexeddb-slides), [lab](https://developers.google.com/web/ilt/pwa/lab-indexeddb), and [concepts](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
+* [Workbox codelab](https://codelabs.developers.google.com/codelabs/workbox-lab/#0)
+* [PWA training materials](https://developers.google.com/web/ilt/pwa/)
 
 ## License
 
