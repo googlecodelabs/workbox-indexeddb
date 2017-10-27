@@ -72,29 +72,28 @@ function addAndPostEvent(e) {
 
 function updateUI(events) {
   events.forEach(event => {
-    const eventItem = document.createElement('li');
-    const table = document.createElement('table');
-    const tableContent = [
-      `<tr>`,
-        `<td class="label">Title:</td>`,
-        `<td>${event.title}</td>`,
-      `</tr>`,
-      `<tr>`,
-        `<td class="label">Date:</td>`,
-        `<td>${event.date}</td>`,
-      `</tr>`,
-      `<tr>`,
-        `<td class="label">City:</td>`,
-        `<td>${event.city}</td>`,
-      `</tr>`,
-      `<tr>`,
-        `<td class="label">Note:</td>`,
-        `<td>${event.note}</td>`,
-      `</tr>`
-    ].join('\n');
-    table.innerHTML = tableContent;
-    eventItem.appendChild(table);
-    container.appendChild(eventItem);
+    const tableContent =
+      `<li>
+        <table>
+          <tr>
+            <td class="label">Title:</td>
+            <td>${event.title}</td>
+          </tr>
+          <tr>
+            <td class="label">Date:</td>
+            <td>${event.date}</td>
+          </tr>
+          <tr>
+            <td class="label">City:</td>
+            <td>${event.city}</td>
+          </tr>
+          <tr>
+            <td class="label">Note:</td>
+            <td>${event.note}</td>
+          </tr>
+        </table>
+      </li>`;
+    container.insertAdjacentHTML('beforeend', tableContent);
   });
 }
 
