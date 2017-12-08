@@ -19,10 +19,6 @@ importScripts('workbox-background-sync.dev.v2.0.0.js');
 const workboxSW = new WorkboxSW();
 workboxSW.precache([]);
 
-workboxSW.precache([
-  'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'
-]);
-
 let bgQueue = new workbox.backgroundSync.QueuePlugin({
   callbacks: {
     replayDidSucceed: async(hash, res) => {

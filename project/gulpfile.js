@@ -16,6 +16,7 @@ limitations under the License.
 const gulp = require('gulp');
 const del = require('del');
 const runSequence = require('run-sequence');
+// uncomment the line below:
 // const wbBuild = require('workbox-build');
 
 gulp.task('clean', () => del(['.tmp', 'build/*', '!build/.git'], {dot: true}));
@@ -29,6 +30,7 @@ gulp.task('copy', () =>
 gulp.task('default', ['clean'], cb => {
   runSequence(
     'copy',
+    // uncomment the line below:
     // 'build-sw',
     cb
   );
