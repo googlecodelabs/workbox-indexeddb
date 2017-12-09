@@ -1,5 +1,5 @@
 <!--
-Copyright 2016 Google Inc.
+Copyright 2017 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,17 +16,9 @@ limitations under the License.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Set the viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-  <!-- Set character encoding -->
   <meta charset="utf-8">
-
-  <!-- Set title -->
   <title>Dashboardr</title>
-
-  <!-- Request styles -->
   <link rel="stylesheet" href="style/main.css" />
 
   <!-- Manifest -->
@@ -55,60 +47,61 @@ limitations under the License.
 <body>
   <header>
     <ul class="navbar">
-      <li><a href="#home">Dashboardr</a></li>
-      <li style="float:right; padding: 12px 16px"><img src="images/icon/icon.svg" alt="profile icon" /></li>
+      <li><a class="home" href="#home"><h2>Dashboardr</h2></a></li>
+      <li><img class="profile" src="images/profile/cat.jpg" alt="An adorable cat" /></li>
     </ul>
   </header>
 
   <main>
-    <h1>Travel Dashboard</h1>
 
-    <picture id="banner">
-      <source media="(min-width: 750px)" srcset="images/sfo-1600_large_2x.jpg 2x, images/sfo-800_large_1x.jpg" />
-      <source media="(min-width: 500px)" srcset="images/sfo_medium.jpg" />
-      <img src="images/sfo_small.jpg" alt="View from aircraft window near San Francisco airport">
-    </picture>
-
-    <section id="post">
-
-      <br>
+    <section>
 
       <h2>Current Events</h2>
 
-      <br>
-
+      <!-- hidden warnings are displayed dynamically -->
       <p id="offline" class="message warn">You're offline and viewing stored data.</p>
       <p id="no-data" class="message error">You're offline and local data is unavailable.</p>
       <p id="data-saved" class="message success">Server data was saved for offline mode</p>
       <p id="save-error" class="message error">Server data couldn't be saved offline :(</p>
 
-      <ul id="container" class="container"></ul>
+      <ul id="container" class="container">
+        <!-- items dynamically populated -->
+      </ul>
 
-      <br><br>
+    </section>
 
-      <form class="form" action="#" method="post">
-        <table class="add-form">
-          <tr>
-            <td><label class="label" for="title">Title:</label></td>
-            <td><input type="text" id="title" name="title"></td>
-          </tr>
-          <tr>
-            <td><label class="label" for="date">Date:</label></td>
-            <td><input type="date" id="date" name="date"></td>
-          </tr>
-          <tr>
-            <td><label class="label" for="city">City:</label></td>
-            <td><input type="text" id="city" name="city"></td>
-          </tr>
-          <tr>
-            <td><label class="label" for="note">Note:</label></td>
-            <td><textarea id="note" name="note"></textarea></td>
-          </tr>
-        </table>
-        <div class="button">
-          <button id="add-event-button">Add event</button>
+    <section class="form-section">
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Add an Event</h2>
         </div>
-      </form>
+        <div class="support-text">
+          <form action="#" method="post">
+            <div class="textfield">
+              <label for="title">Title</label>
+              <input id="title" name="title"/>
+            </div>
+            <div class="textfield">
+              <label for="date">Date</label>
+              <input id="date" type="date" name="date"/>
+            </div>
+            <div class="textfield">
+              <label for="city">City</label>
+              <input id="city" name="city"/>
+            </div>
+            <div class="textfield">
+              <label for="note">Note</label>
+              <input id="note" name="note"/>
+            </div>
+            <div class="card-action">
+              <button id="add-event-button" type="submit" class="raised button ripple">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
     </section>
 
@@ -116,12 +109,12 @@ limitations under the License.
 
   <footer>
 
-    <div id="social">
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-      <a href="#">Google+</a>
-      <a href="#">Digg</a>
-    </div>
+    <ul class="social">
+      <li><a href="#" class="social-link">Twitter</a></li>
+      <li><a href="#" class="social-link">Facebook</a></li>
+      <li><a href="#" class="social-link">Google+</a></li>
+      <li><a href="#" class="social-link">Digg</a></li>
+    </ul>
 
   </footer>
 
