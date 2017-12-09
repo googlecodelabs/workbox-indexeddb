@@ -94,28 +94,16 @@ function addAndPostEvent(e) {
 
 function updateUI(events) {
   events.forEach(event => {
-    const tableContent =
-      `<li>
-        <table>
-          <tr>
-            <td class="label">Title:</td>
-            <td>${event.title}</td>
-          </tr>
-          <tr>
-            <td class="label">Date:</td>
-            <td>${event.date}</td>
-          </tr>
-          <tr>
-            <td class="label">City:</td>
-            <td>${event.city}</td>
-          </tr>
-          <tr>
-            <td class="label">Note:</td>
-            <td>${event.note}</td>
-          </tr>
-        </table>
-      </li>`;
-    container.insertAdjacentHTML('beforeend', tableContent);
+    const item =
+      `<li class="card">
+         <div class="card-text">
+           <h2>${event.title}</h2>
+           <h4>${event.date}</h4>
+           <h4>${event.city}</h4>
+           <p>${event.note}</p>
+         </div>
+       </li>`;
+    container.insertAdjacentHTML('beforeend', item);
   });
 }
 
