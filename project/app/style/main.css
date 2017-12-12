@@ -26,7 +26,9 @@ body {
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
   margin: 0;
   text-align: center;
-  width: 100;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 img {
