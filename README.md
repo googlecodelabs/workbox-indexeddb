@@ -4,9 +4,7 @@ In this codelab, you’ll use [IndexedDB](https://developer.mozilla.org/en-US/do
 
 ## Getting started
 
-Clone the repository and navigate to **workbox-indexeddb/project**.
-
-[Download and install Node.js](https://nodejs.org/en/download/).
+Follow the [Google Codelabs instructions](https://codelabs.developers.google.com/codelabs/workbox-indexeddb/index.html?index=..%2F..%2Findex#0).
 
 ## More resources
 
