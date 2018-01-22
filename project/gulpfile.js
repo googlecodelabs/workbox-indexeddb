@@ -1,5 +1,5 @@
 /*
-Copyright 2016 Google Inc.
+Copyright 2018 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,29 +13,31 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
+// import our dependencies
 const gulp = require('gulp');
 const del = require('del');
 const runSequence = require('run-sequence');
-// uncomment the line below:
-// const wbBuild = require('workbox-build');
 
+// this task removes old files
 gulp.task('clean', () => del(['.tmp', 'build/*', '!build/.git'], {dot: true}));
 
+// this task copies "app" files into "build"
 gulp.task('copy', () =>
   gulp.src([
     'app/**/*',
   ]).pipe(gulp.dest('build'))
 );
 
+// this is our default task
 gulp.task('default', ['clean'], cb => {
   runSequence(
     'copy',
-    // uncomment the line below:
-    // 'build-sw',
     cb
   );
 });
 
+// this task watches our "app" files & rebuilds whenever they change
 gulp.task('watch', function() {
   gulp.watch('app/**/*', ['default']);
 });
