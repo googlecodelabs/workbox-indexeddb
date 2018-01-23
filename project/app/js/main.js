@@ -24,7 +24,7 @@ addEventButton.addEventListener('click', addAndPostEvent);
 
 Notification.requestPermission();
 
-// const dbPromise = createIndexedDB();
+// TODO - create indexedDB database
 
 loadContentNetworkFirst();
 
@@ -58,7 +58,9 @@ function addAndPostEvent(e) {
     note: document.getElementById('note').value
   };
   updateUI([data]);
-  // saveEventDataLocally([data]);
+
+  // TODO - save event data locally
+
   const headers = new Headers({'Content-Type': 'application/json'});
   const body = JSON.stringify(data);
   return fetch('api/add', {

@@ -1,5 +1,5 @@
 /*
-Copyright 2017 Google Inc.
+Copyright 2018 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,6 +13,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => {
+        console.log(`Service Worker registed! Scope: ${registration.scope}`);
+      })
+      .catch(err => {
+        console.log(`Service Worker registration failed: ${err}`);
+      });
+  });
+}
+
 const container = document.getElementById('container');
 const offlineMessage = document.getElementById('offline');
 const noDataMessage = document.getElementById('no-data');
@@ -29,35 +42,30 @@ const dbPromise = createIndexedDB();
 loadContentNetworkFirst();
 
 function loadContentNetworkFirst() {
-  getServerData() // get server data
+  getServerData()
   .then(dataFromNetwork => {
-    updateUI(dataFromNetwork); // display server data on page
-    saveEventDataLocally(dataFromNetwork) // update local copy of data in IDB
+    updateUI(dataFromNetwork);
+    saveEventDataLocally(dataFromNetwork)
     .then(() => {
-      setLastUpdated(new Date()); // mark when the local data was last updated
-      messageDataSaved(); // alert user that data has been saved locally
+      setLastUpdated(new Date());
+      messageDataSaved();
     }).catch(err => {
-      messageSaveError(); // alert user that there was an error saving data
+      messageSaveError();
       console.warn(err);
     });
-  }).catch(err => { // if we can't connect to the server...
+  }).catch(err => {
     console.log('Network requests have failed, this is expected if offline');
-    getLocalEventData() // attempt to get local data from IDB
+    getLocalEventData()
     .then(offlineData => {
-      if (!offlineData.length) { // alert user if there is no local data
-        messageNoData(); // alert user that no local data is available
+      if (!offlineData.length) {
+        messageNoData();
       } else {
-        messageOffline(); // alert user that we are using local data (possibly outdated)
-        updateUI(offlineData); // display local data on page
+        messageOffline();
+        updateUI(offlineData);
       }
     });
   });
 }
-
-window.addEventListener('online', () => {
-  container.innerHTML = '';
-  loadContentNetworkFirst();
-});
 
 /* Network functions */
 
