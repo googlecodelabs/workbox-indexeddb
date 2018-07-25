@@ -13,31 +13,32 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
-// import our dependencies
 const gulp = require('gulp');
 const del = require('del');
-const runSequence = require('run-sequence');
 
-// this task removes old files
-gulp.task('clean', () => del(['.tmp', 'build/*', '!build/.git'], {dot: true}));
+// Clean "build" directory
+const clean = () => {
+  return del(['build/*'], {dot: true});
+};
+gulp.task('clean', clean);
 
-// this task copies "app" files into "build"
-gulp.task('copy', () =>
-  gulp.src([
-    'app/**/*',
-  ]).pipe(gulp.dest('build'))
-);
+// Copy "app" directory to "build" directory
+const copy = () => {
+  return gulp.src(['app/**/*']).pipe(gulp.dest('build'));
+};
+gulp.task('copy', copy);
 
-// this is our default task
-gulp.task('default', ['clean'], cb => {
-  runSequence(
-    'copy',
-    cb
-  );
-});
+// TODO - add "service worker" task here
 
-// this task watches our "app" files & rebuilds whenever they change
-gulp.task('watch', function() {
-  gulp.watch('app/**/*', ['default']);
-});
+// This is the app's build process
+const build = gulp.series('clean', 'copy');
+gulp.task('build', build);
+
+// Watch our "app" files & rebuild whenever they change
+const watch = () => {
+  gulp.watch('app/**/*', build);
+};
+gulp.task('watch', watch);
+
+// Set the default task to "build"
+gulp.task('default', build);
