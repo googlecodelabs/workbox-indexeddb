@@ -13,6 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
+// TODO - register service worker
+
 const container = document.getElementById('container');
 const offlineMessage = document.getElementById('offline');
 const noDataMessage = document.getElementById('no-data');
