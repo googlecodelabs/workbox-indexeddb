@@ -40,7 +40,7 @@ if (workbox) {
   });
 
   workbox.routing.registerRoute(
-    /\/api\/add/,
+    ({url}) => url.pathname === "/api/add",
     networkWithBackgroundSync,
     'POST'
   );
