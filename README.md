@@ -6,6 +6,13 @@ In this codelab, you’ll use [IndexedDB](https://developer.mozilla.org/en-US/do
 
 Follow the [Google Codelabs instructions](https://codelabs.developers.google.com/codelabs/workbox-indexeddb/index.html?index=..%2F..%2Findex#0).
 
+NOTE:
+Instead of building & starting the server directly with `npm start`, this
+branch requires running `npm run build` to build files locally, then
+`npm start` to start the local server. This will allow Google App Engine
+deployments. GAE is capable of running the start process but not the build
+process, so the build process needs to be run separately & locally.
+
 ## More resources
 
 * IndexedDB [lecture](https://developers.google.com/web/ilt/pwa/working-with-indexeddb-slides), [lab](https://developers.google.com/web/ilt/pwa/lab-indexeddb), and [concepts](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
